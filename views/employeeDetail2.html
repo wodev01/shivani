@@ -1,0 +1,124 @@
+
+<div class="container">
+    <div class="col-md-12 col-xs-12 col-lg-12 row">
+        <!--<span  style="font-weight:bold">Search : </span>-->
+        <div class="col-md-10 col-xs-10 col-lg-10">
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchKeyword" />
+        </div>
+        <div class="col-md-2 col-xs-2 col-lg-2 ">
+            <button class="btn btn-success" ng-click="view()">Add</button>
+        </div>
+    </div>
+    <br><br>
+    <div class="row col-md-12 col-xs-12 col-lg-12"><!--ng-controller="DeleteCtrl"-->
+        <table class="table" border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contact in contacts | filter: searchKeyword" >
+            <td>{{ contact.id }}</td>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.salary }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>
+                <a href="javscript:void(0);" ng-click="edit(contact.id)"><i class="fa fa-pencil-square-o"></i></a> |
+                <!--<a href="#" ng-click="delete(contact.id)"><i class="fa fa-trash"></i></a>-->
+                <a href="javscript:void(0);" ng-click="delete(contact.id)"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th> Total : {{ contacts|sumProduct:'salary' }}</th>
+            <!--<th colspan="2"> Total {{ datas|sumProduct:'price':'stock.quantity' }}</th>-->
+            <th></th>
+            <th></th>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="col-md-12 col-xs-12 col-lg-12 row row-centered">
+        <div class="col-md-4 col-xs-4 col-lg-4 col-centered" ng-repeat="contact in contacts">
+            <div class="item">
+                <div class="content">
+                    <h4 class="group inner list-group-item-heading">
+                        {{contact.name}}
+                    </h4>
+                    <i class="fa fa-user fa-5x"></i>
+                    <p class="group inner list-group-item-text">{{contact.email}}</p>
+                    <p class="group inner list-group-item-text">{{contact.salary}}</p>
+                    <p class="group inner list-group-item-text">{{contact.phone}}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="javscript:void(0);" ng-click="view(contact.id)"><i class="fa fa-eye"></i></a>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="javscript:void(0);" ng-click="delete(contact.id)"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- <div class="col-md-12 col-xs-12 col-lg-12 center-block" ng-controller="EmpDialogCtrl">
+        <div id="products" class="row list-group" >
+            <div class="item  col-md-4 col-xs-4 col-lg-4" ng-repeat="contact in contacts">
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{contact.name}}</h4>
+                        <i class="fa fa-user fa-5x"></i>
+                    <p class="group inner list-group-item-text">{{contact.email}}</p>
+                    <p class="group inner list-group-item-text">{{contact.salary}}</p>
+                    <p class="group inner list-group-item-text">{{contact.phone}}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="javscript:void(0);" ng-click="view(contact.id)"><i class="fa fa-eye"></i></a>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="javscript:void(0);" ng-click="delete(contact.id)"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            &lt;!&ndash;
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>&ndash;&gt;
+        </div>
+    </div>-->
+</div>
+
+
+
+

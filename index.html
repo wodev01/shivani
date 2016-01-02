@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<head>
+    <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/vendor/font-awesome-4.5.0/css/font-awesome.min.css"/>
+    <link rel="styleSheet" href="css/vendor/ui-grid-3.0.7/ui-grid.css"/>
+    <link href="css/custom/style.css" rel="stylesheet"/>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarController">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" ui-sref="login"><img src="img/AngularJS-small.png"></a>-->
+            <a class="navbar-brand" ui-sref="/"><img src="img/AngularJS-small.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" ng-if="isLoggedIn"><!--ng-if="isLoggedIn"-->
+                <li><a ui-sref="home" ng-bind="isLoggedIn ? 'Home' : ''"></a></li>
+                <li><a ui-sref="Employee" ng-bind="isLoggedIn ? 'Employee' : ''"></a></li>
+                <li><a ui-sref="EmployeeDetail" ng-bind="isLoggedIn ? 'Employee Detail' : ''"></a></li>
+                <li><a ui-sref="Directive" ng-bind="isLoggedIn ? 'Directive' : ''"></a></li>
+                <li><a ui-sref="Promise" ng-bind="isLoggedIn ? 'Promise' : ''"></a></li>
+                <li><a ui-sref="AboutUs" ng-bind="isLoggedIn ? 'About Us' : ''"></a></li>
+                <li><a ui-sref="movies" ng-bind="isLoggedIn ? 'Movies' : ''"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="signout()" ng-bind="isLoggedIn ? 'SignOut' : 'LogIn'"></a></li>
+                <!--<a my-href="signout()">This is my a tag with a function that builds the url</a>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container" ui-view>
+
+</div>
+<!--First Load angular library:-->
+<script src="js/vendor/jquery-1.11.3/jquery.min.js"></script>
+<script src="js/vendor/angular-1.4.0/angular.min.js"></script>
+<script src="js/vendor/angular-1.4.0/angular-resource.min.js"></script>
+<script src="js/vendor/angular-1.4.0/angular-touch.min.js"></script>
+<script src="js/vendor/angular-1.4.0/angular-animate.min.js"></script>
+<script src="js/vendor/angular-ui-router-0.2.15/angular-ui-router.min.js"></script>
+<script src="js/vendor/angular-1.4.0/angular-cookies.js"></script>
+<script src="js/vendor/ngStorage-0.3.6/ngStorage.min.js"></script>
+<script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="js/vendor/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+<script src="js/vendor/ui-grid-3.0.7/ui-grid.min.js"></script>
+<!--load your app init file-->
+<script src="js/custom/app.js"></script>
+<!--load your controllers, services, filters, directives-->
+<!--<script src="js/custom/services.js"></script>-->
+<script src="js/custom/services/authService.js"></script>
+<script src="js/custom/services/employee.js"></script>
+<script src="js/custom/controllers/homeCtrl.js"></script>
+<script src="js/custom/controllers/aboutUsCtrl.js"></script>
+<script src="js/custom/controllers/directiveCtrl.js"></script>
+<script src="js/custom/controllers/employeeCtrl.js"></script>
+<script src="js/custom/controllers/employeeDetailCtrl.js"></script>
+<script src="js/custom/controllers/loginCheckController.js"></script>
+<script src="js/custom/controllers/promiseCtrl.js"></script>
+<script src="js/custom/controllers/navbarController.js"></script>
+<script src="js/custom/controllers/deleteCtrl.js"></script>
+<script src="js/custom/controllers/empDialogCtrl.js"></script>
+<script src="js/custom/controllers/viewCtrl.js"></script>
+<script src="js/custom/controllers/movieCtrl.js"></script>
+<script src="js/custom/filters/filter.js"></script>
+<script src="js/custom/directive/directive.js"></script>
+<script src="js/custom/directive/directive1.js"></script>
+<script src="js/custom/services/resource.js"></script>
+</body>
+</html>

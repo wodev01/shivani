@@ -1,0 +1,70 @@
+
+<div class="modal-header" >
+    <h3 style="display: inline-block" ng-bind="employeename ? employeename : 'Create new Employee' "></h3>
+    <!--<h3 class="modal-title" style="display: inline-block" ng-bind="employeename.name : employeename.name ? 'create'"></h3>-->
+    <!--<a  style="float: right" href="javscript:void(0);" ng-click="cancel()" class="modelIcon"><i class="fa fa-times fa-lg"></i></a>
+    <a ng-hide="employeename ? false : true" style="float: right" href="javscript:void(0);" ng-click="edit()" class="modelIcon" ><i class="fa fa-pencil-square-o fa-lg"></i></a>
+   -->
+    <!--{{checkModel}} ng-model="checkModel.right" uib-btn-checkbox-->
+    <div class="btn-group pull-right">
+        <button class="btn btn-primary" ng-click="edit()" ng-hide="employeename ? false : true" >
+            <i class="fa fa-pencil-square-o fa-lg"></i>
+        </button>
+        <button class="btn btn-primary"ng-click="cancel()" >
+            <i class="fa fa-times fa-lg"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal-body">
+    <!--{{editable}}-->
+    <form name="myForm" novalidate class="form-horizontal">
+        <fieldset ng-disabled="employeename ? editable : false">
+        <div class="form-group">
+            <label for="name" class="control-label col-sm-2">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" ng-model="emp.name" placeholder="Enter name" required />
+                <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                <span ng-show="myForm.name.$error.required">Name is required.</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="control-label col-sm-2">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" id="email" ng-model="emp.email" placeholder="Enter email" required/>
+                <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="salary" class="control-label col-sm-2">Salary</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="salary" id="salary" ng-model="emp.salary" placeholder="Enter salary" required/>
+                <span style="color:red" ng-show="myForm.salary.$dirty && myForm.salary.$invalid">
+                <span ng-show="myForm.salary.$error.required">salary is required.</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">Phone</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="phone" id="phone" ng-model="emp.phone"
+                       ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/" placeholder="Enter phone" required/>
+                <span style="color:red" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
+                <span ng-show="myForm.phone.$error.required">Phone is required.</span>
+                <span style="color:red" ng-show="myForm.phone.$error.pattern">
+                    Not a valid Phone number</span>
+                </span>
+        </div>
+            </div>
+</fieldset>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(emp)" ng-bind="employeename ? 'Save' : 'Create' "></button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
